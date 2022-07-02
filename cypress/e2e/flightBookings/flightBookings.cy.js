@@ -12,7 +12,7 @@ const customer=Cypress.env('customer')
 Given('I am on the Home Page My Bookings',()=>{
     cy.landingOnMyBookingsPage()
 })
-//Checking the flight booking functionality
+// Checking the flight booking functionality
 When('I click on the Flight button',()=>{
     cy.get(homePage.flightsButton).click()
 })
