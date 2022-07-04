@@ -1,5 +1,4 @@
 import {loginForm} from '../../support/POM/loginPage'
-import { homePage } from '../../support/POM/homePage'
 import { errorMessages } from '../../fixtures/loginPage/constLoginPage'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
@@ -10,7 +9,7 @@ const wrongCredentials=Cypress.env('wrongCredentials')
 Given('I am on the Home Page',()=>{
     cy.visit('/')
     cy.url().should('contain','login')
-    cy.get(loginForm.pageTitle).should('have.text', 'Loginnn')
+    cy.get(loginForm.pageTitle).should('have.text', 'Login')
 })
 
 //I want to check customer login with empty email and password

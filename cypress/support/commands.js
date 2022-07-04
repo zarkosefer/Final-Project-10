@@ -162,6 +162,8 @@ Cypress.Commands.add('inputDate',()=>{
     cy.get(flightsForm.searchButton).click()
 })
 
+
+
 Cypress.Commands.add('chooseCheapestFlight',()=>{
     cy.get(flightsForm.priceList).each(($el,index,$list)=>{
         const priceText=$el.text()
@@ -177,6 +179,11 @@ Cypress.Commands.add('chooseCheapestFlight',()=>{
     })
 })
 
+Cypress.Commands.add('confirmBookinGViaBank',()=>{
+    cy.get(flightsForm.termsAndConditionsChb).click({force:true})
+    cy.get(flightsForm.confirmBookingButton).click()
+})
+
 Cypress.Commands.add('validatingPriceFlight',()=>{
     cy.get(flightsForm.confirmedPrice).each(($el,index,$list)=>{
         const text=$el.text()
@@ -189,6 +196,18 @@ Cypress.Commands.add('validatingPriceFlight',()=>{
                 expect(number).to.equal(minNumber)
             })
         }
+    })
+})
+
+Cypress.Commands.add('validatingFlightPageLayout',()=>{
+    cy.get(flightsForm.table).should('exist').and('be.visible')
+    cy.get(flightsForm.headers).each(($el,index,list)=>{
+        cy.wrap($el)
+        .should('contain.text',fheader.items[index])
+    })
+    cy.get(flightsForm.classOption).each(($el,index,list)=>{
+        cy.wrap($el)
+        .should('contain.text',flightType.items[index])
     })
 })
 

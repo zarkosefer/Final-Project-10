@@ -28,7 +28,8 @@ const currency={
     'CNY',
     'TRY',
     'RUB',
-    'IRR'
+    'IRR',
+    'VND'
 ]}
 
 export {errorMessages,language, currency}
